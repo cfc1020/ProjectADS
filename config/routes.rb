@@ -1,4 +1,5 @@
 ProjectADS::Application.routes.draw do
+  get "ad_ss/index"
   devise_for :users
   get "users/show", as: "user_root"
 

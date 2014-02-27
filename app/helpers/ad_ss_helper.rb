@@ -1,0 +1,2 @@
+module AdSsHelper
+end
