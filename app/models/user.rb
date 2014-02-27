@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 	extend Enumerize
 
+	has_many :adss
+
   	enumerize :role, in: [:user, :admin], default: :user
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
