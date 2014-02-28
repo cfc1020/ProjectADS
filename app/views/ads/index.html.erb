@@ -1,2 +1,9 @@
 <h1>Ads#index</h1>
 <p>Find me in app/views/ads/index.html.erb</p>
+
+<% @ads.each do |ads| %>
+	<p>UserName:
+	<%= ads.user.name %> <br />
+	ContentAd:
+	<%= ads.content   %> </p>
+<% end %>
