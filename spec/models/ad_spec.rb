@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe Ads do
+describe Ad do
   pending "add some examples to (or delete) #{__FILE__}"
 end

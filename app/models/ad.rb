@@ -1,4 +1,4 @@
-class Ads < ActiveRecord::Base
+class Ad < ActiveRecord::Base
 	belongs_to :user
   	validates :user_id, presence: true
 end
