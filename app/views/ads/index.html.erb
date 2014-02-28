@@ -2,8 +2,11 @@
 <p>Find me in app/views/ads/index.html.erb</p>
 
 <% @ads.each do |ads| %>
-	<p>UserName:
-	<%= ads.user.name %> <br />
-	ContentAd:
-	<%= ads.content   %> </p>
+	<p>
+		UserName:
+		<%= ads.user.name %> <br />
+		ContentAd:
+		<%= ads.content   %>
+		<%= link_to "Bla-bla-bla", '/'if can? :edit, ads %> 
+	</p>
 <% end %>
