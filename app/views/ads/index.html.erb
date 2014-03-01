@@ -1,6 +1,8 @@
 <h1>Ads#index</h1>
 <p>Find me in app/views/ads/index.html.erb</p>
 
+<%= will_paginate @ads %>
+
 <% @ads.each do |ads| %>
 	<p>
 		UserName:
