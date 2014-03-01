@@ -1,4 +1,6 @@
 ProjectADS::Application.routes.draw do
+  get "pictures/create"
+  get "pictures/destroy"
   resources  :ads
   devise_for :users
   get "users/show", as: "user_root"

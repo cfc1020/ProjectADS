@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227102802) do
+ActiveRecord::Schema.define(version: 20140301090717) do
 
   create_table "ads", force: true do |t|
     t.string   "content"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20140227102802) do
   end
 
   add_index "ads", ["user_id", "created_at"], name: "index_ads_on_user_id_and_created_at"
+
+  create_table "pictures", force: true do |t|
+    t.string   "url"
+    t.integer  "ad_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
