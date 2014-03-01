@@ -46,6 +46,8 @@ gem 'protected_attributes'
 gem 'enumerize'
 gem 'simple_form'
 gem 'will_paginate', '~> 3.0'
+gem 'state_machine'
+gem 'nested_form'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
