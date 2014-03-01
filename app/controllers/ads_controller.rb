@@ -4,7 +4,11 @@ class AdsController < ApplicationController
   end
 
   def new
-  	@ad = current_user.ads.build 
+  	if signed_in?
+  		@ad = current_user.ads.build if signed_in?
+  	else
+  		redirect_to new_user_session_path
+  	end
   end
 
   def create
