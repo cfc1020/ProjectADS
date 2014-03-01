@@ -1,12 +1,15 @@
 <h1>Ads#new</h1>
 <p>Find me in app/views/ads/new.html.erb</p>
 
-<%= simple_form_for @ad do |f| %>
+<%= simple_nested_form_for @ad do |f| %>
 	<%= f.association :type %>
 	<%= f.input  :content %>
-	<%= f.simple_fields_for :pictures do |pic_form| %>
+	<%= f.fields_for :pictures do |pic_form| %>
       	<%= pic_form.input :url %>
+      	<%= pic_form.link_to_remove 'link_to_remove' %>
   	<% end %>
+
+  	<%= f.link_to_add 'Add picture', :pictures %>
 
   	<%= f.button :submit  %>
 <% end %>

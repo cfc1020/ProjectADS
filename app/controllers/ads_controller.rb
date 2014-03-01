@@ -7,7 +7,6 @@ class AdsController < ApplicationController
   def new
   	if signed_in?
   		@ad = current_user.ads.build
-      @ad.pictures.build
   	else
   		redirect_to new_user_session_path
   	end
@@ -15,9 +14,10 @@ class AdsController < ApplicationController
 
   def create
   	@ad = current_user.ads.build(params.require(:ad).permit(:content))
-    @ad.picture.url = params[:picture].url
+    @ad.pictures_attributes = params[:ad][:pictures_attributes]
+
     if @ad.save
-      flash[:notice] = params[:picture] #'OK!!!'
+      flash[:notice] = 'OK!!!'
       redirect_to action: 'index'
     else
       render :action => "new"
