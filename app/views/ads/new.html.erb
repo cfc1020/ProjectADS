@@ -2,6 +2,7 @@
 <p>Find me in app/views/ads/new.html.erb</p>
 
 <%= simple_form_for @ad do |f| %>
+	<%= f.association :type %>
 	<%= f.input  :content %>
 	<%= f.simple_fields_for :pictures do |pic_form| %>
       	<%= pic_form.input :url %>

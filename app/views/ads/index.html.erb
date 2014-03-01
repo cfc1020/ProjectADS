@@ -9,7 +9,8 @@
 		<%= ads.user.name %> <br />
 		ContentAd:
 		<%= ads.content   %>
-		<%= link_to "Bla-bla-bla", '/'if can? :edit, ads %> 
+		<%= link_to "Bla-bla-bla", '/'if can? :edit, ads %> <br />
+		<%= ads.type %> <br />
 		<% ads.pictures.each do |pic| %>
   			<%= image_tag(pic.url) %>
 		<% end %>

@@ -15,9 +15,9 @@ class AdsController < ApplicationController
 
   def create
   	@ad = current_user.ads.build(params.require(:ad).permit(:content))
-    #@ad.update_attributes(params[:ad])
+    @ad.picture.url = params[:picture].url
     if @ad.save
-      flash[:notice] = 'OK!!!'
+      flash[:notice] = params[:picture] #'OK!!!'
       redirect_to action: 'index'
     else
       render :action => "new"
