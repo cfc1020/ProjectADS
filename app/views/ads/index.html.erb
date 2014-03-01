@@ -10,5 +10,8 @@
 		ContentAd:
 		<%= ads.content   %>
 		<%= link_to "Bla-bla-bla", '/'if can? :edit, ads %> 
+		<% ads.pictures.each do |pic| %>
+  			<%= image_tag(pic.url) %>
+		<% end %>
 	</p>
 <% end %>

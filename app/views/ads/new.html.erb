@@ -3,5 +3,9 @@
 
 <%= simple_form_for @ad do |f| %>
 	<%= f.input  :content %>
+	<%= f.simple_fields_for :pictures do |pic_form| %>
+      	<%= pic_form.input :url %>
+  	<% end %>
+
   	<%= f.button :submit  %>
 <% end %>
