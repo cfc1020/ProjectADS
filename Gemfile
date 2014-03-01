@@ -44,6 +44,7 @@ gem 'devise'
 gem 'cancan'
 gem 'protected_attributes'
 gem 'enumerize'
+gem 'simple_form'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
