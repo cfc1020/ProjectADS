@@ -3,11 +3,12 @@ class Ability
 
   def initialize(user)
     if user.nil?
-        can :read, :all
+        can :read, Ad, :state => 'published'
     elsif user.role.admin?
         can :manage, :all
     elsif user.role.user?
-        can :manage, Ad, :user_id => user.id
+        can [:read, :create, :destroy, :send_to_pending, :send_to_draft], Ad, :user_id => user.id
+        can :update, Ad, :user_id => user.id, :state => 'draft'
     end
     #else
         #can :read, :all
