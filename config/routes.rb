@@ -1,7 +1,11 @@
 ProjectADS::Application.routes.draw do
   get "pictures/create"
   get "pictures/destroy"
-  resources  :ads
+  
+  resources  :ads do
+    post 'transfer_state', on: :member
+  end
+
   devise_for :users
   get "users/show", as: "user_root"
 

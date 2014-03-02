@@ -23,4 +23,10 @@ class AdsController < ApplicationController
       render :action => "new"
     end
   end
+
+  def transfer_state
+    @ad = Ad.find(params[:id])
+    @ad.send(params[:transfer_method])
+    redirect_to action: 'index'
+  end
 end
