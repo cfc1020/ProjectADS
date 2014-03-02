@@ -12,12 +12,14 @@ class Ad < ActiveRecord::Base
 
 
   	state_machine :initial => :draft do
+=begin
   		state :draft, value: 0
     	state :pending, value: 1
     	state :published, value: 2
     	state :rejected, value: 3
     	state :approved, value: 4
     	state :archives, value: 5
+=end
 
     	event :publish do
       		transition :approved => :published

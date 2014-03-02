@@ -1,4 +1,6 @@
 ProjectADS::Application.routes.draw do
+  get "static_pages/adminka"
+  get "user/index"
   get "pictures/create"
   get "pictures/destroy"
   
@@ -9,6 +11,9 @@ ProjectADS::Application.routes.draw do
   devise_for :users
   get "users/show", as: "user_root"
 
+  namespace :admin do
+    root :to => "static_pages#adminka"
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

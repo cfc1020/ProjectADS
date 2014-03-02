@@ -3,8 +3,18 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_filter :authenticate_user!
 
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
+
+
+  def after_sign_in_path_for(user)
+    if user.role.admin? 
+      "/admin"
+    else
+      "http://onliner.by"
+   end
+  end
 
   protected
 
@@ -21,5 +31,7 @@ class ApplicationController < ActionController::Base
       }
     end
   end
+
+  
 
 end
