@@ -5,20 +5,19 @@ class Ad < ActiveRecord::Base
   	#validates  :user_id, presence: true
 
   	attr_accessible :content, :user_id, :type_id, :pictures_attributes
-  	#attr_protected :user_id
+  	attr_protected  :state
 
   	accepts_nested_attributes_for :pictures, :reject_if => :all_blank,
                                 :allow_destroy => true
 
-=begin
-  	state_machine initial: :draft do
+
+  	state_machine :initial => :draft do
   		state :draft, value: 0
     	state :pending, value: 1
     	state :published, value: 2
     	state :rejected, value: 3
     	state :approved, value: 4
     	state :archives, value: 5
-    end
 
     	event :publish do
       		transition :approved => :published
@@ -41,9 +40,8 @@ class Ad < ActiveRecord::Base
     	end
 
     	event :send_to_draft do
-      		transition [:published, :approved, :rejected, :pending, :archives] 
-      			=> :draft
+      		transition [:published, :approved, :rejected, :pending, :archives] => :draft
     	end
   	end
-=end
+
 end
