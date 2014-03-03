@@ -1,5 +1,6 @@
 ProjectADS::Application.routes.draw do
   
+  get "home/index"
   get "user/index"
   get "pictures/create"
   get "pictures/destroy"

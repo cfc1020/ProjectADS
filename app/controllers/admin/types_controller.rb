@@ -22,12 +22,14 @@ class Admin::TypesController < ApplicationController
   end
 
   def destroy
+  	@type = Type.find(params[:id])
   	@type.destroy
 
     redirect_to(admin_types_path)
   end
 
   def update
+  	@type = Type.find(params[:id])
   	if @type.update_attributes(params[:type])
   		flash.now[:notice] = 'OK.'
      	redirect_to(admin_types_path)
