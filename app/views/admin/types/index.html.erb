@@ -1,0 +1,12 @@
+<h1>Admin::Types#index</h1>
+<p>Find me in app/views/admin/types/index.html.erb</p>
+
+
+<% @types.each do |type| %>
+  <%= type.id %> : <%= type.name %>
+  <%= link_to 'edit', edit_admin_type_path(type) %>
+  <%= link_to 'delete', admin_type_path(type), :method => :delete, :confirm => "Y/N?", :title => "Delete type #{type.name}" %>
+<% end %>
+
+<%= link_to 'Create new type', new_admin_type_path %>
+
