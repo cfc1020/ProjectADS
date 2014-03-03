@@ -16,6 +16,8 @@ ProjectADS::Application.routes.draw do
     root :to => "static_pages#adminka"
     resources :types, :except => [:show]
     get "static_pages/adminka"
+    get "ads/moderate"
+    #match "/ads/moderate", :to => "ads#moderate"
   end
   
   # The priority is based upon order of creation: first created -> highest priority.
