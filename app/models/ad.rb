@@ -1,8 +1,12 @@
 class Ad < ActiveRecord::Base
-	belongs_to :user
-	belongs_to :type
-	has_many   :pictures
+	  belongs_to :user
+	  belongs_to :type
+	  has_many   :pictures, :dependent => :destroy
   	#validates  :user_id, presence: true
+
+    #validates :content, :presence => true, :length => { :in 10..1000 }
+    validates :type, :presence => true
+    validates :user, :presence => true  
 
   	attr_accessible :content, :user_id, :type_id, :pictures_attributes
   	attr_protected  :state

@@ -8,6 +8,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
 
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to '/', :alert => exception.message
+  end
+
+
   def after_sign_in_path_for(user)
     if user.role.admin? 
       "/admin"

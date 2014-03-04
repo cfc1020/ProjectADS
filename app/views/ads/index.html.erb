@@ -9,14 +9,15 @@
 		<%= ads.user.name %> <br />
 		ContentAd:
 		<%= ads.content   %>
-		<%= link_to "Bla-bla-bla", '/'if can? :edit, ads %> <br />
-		<%= ads.type %> <br />
+		<%= link_to "edit", edit_ad_path(ads) if can? :edit, ads %> 
+		<%= link_to "delete", ad_path(ads), :method => :delete, :confirm => "Y/N?", :title => "Delete?" if can? :destroy, ads  %> <br />
+		<%= ads.type.name %> <br />
 		<% ads.pictures.each do |pic| %>
   			<%= image_tag(pic.url) %>
 		<% end %>
 
 		Status: <%= ads.state %> <br />
-    	<% [:send_to_draft, :send_to_pending, :rejecte].each do |transfer_method| %>
+    	<% [:send_to_draft, :send_to_pending, :rejecte, :approve].each do |transfer_method| %>
       		<%= state_link transfer_method, ads %>
    		<% end %>
 	</p>

@@ -1,6 +1,7 @@
 class AdsController < ApplicationController
   def index
-    @ads = Ad.paginate(:page => params[:page], :per_page => 5)
+    @ads = Ad.paginate(:page => params[:page], :per_page => 5).
+      find_all_by_state("published")
   end
 
   def new
@@ -12,8 +13,12 @@ class AdsController < ApplicationController
   end
 
   def create
-  	@ad = current_user.ads.build(params.require(:ad).permit(:content))
-    @ad.pictures_attributes = params[:ad][:pictures_attributes]
+  	@ad = current_user.ads.build(params.require(:ad).permit(:content, :type_id))
+    if !params[:ad][:pictures_attributes].nil?
+      @ad.pictures_attributes = params[:ad][:pictures_attributes]
+    end
+
+
 
     if @ad.save
       flash[:notice] = 'OK!!!'
@@ -21,6 +26,26 @@ class AdsController < ApplicationController
     else
       render :action => "new"
     end
+  end
+
+  def edit
+    @ad = Ad.find(params[:id])
+  end
+
+  def update
+    @ad = Ad.find(params[:id])
+    if @ad.update_attributes(params[:ad])
+      flash[:notice] = 'OK!.'
+      redirect_to ads_path
+    else
+      render :action => "edit"
+    end
+  end
+
+  def destroy
+    @ad = Ad.find(params[:id])
+    @ad.destroy
+    redirect_to ads_path
   end
 
   def transfer_state

@@ -9,6 +9,8 @@ ProjectADS::Application.routes.draw do
     post 'transfer_state', on: :member
   end
 
+  root :to => "ads#index"
+
   devise_for :users
   get "users/show", as: "user_root"
 
@@ -17,7 +19,6 @@ ProjectADS::Application.routes.draw do
     resources :types, :except => [:show]
     get "static_pages/adminka"
     get "ads/moderate"
-    #match "/ads/moderate", :to => "ads#moderate"
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

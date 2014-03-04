@@ -3,5 +3,5 @@ class Type < ActiveRecord::Base
 
   	has_many :ads, :dependent => :destroy
 
-  	#validates :name, :presence => true, :length => { :in => 2..10 }
+  	validates :name, :presence => true, :length => { :in => 2..10 }
 end

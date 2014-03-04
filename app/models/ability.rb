@@ -6,6 +6,7 @@ class Ability
         can :read, Ad, :state => 'published'
     elsif user.role.admin?
         can :manage, :all
+        can :set_role, User
     elsif user.role.user?
         can [:read, :create, :destroy, :send_to_pending, :send_to_draft], Ad, :user_id => user.id
         can :update, Ad, :user_id => user.id, :state => 'draft'
