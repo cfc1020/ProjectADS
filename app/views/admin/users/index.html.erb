@@ -1,0 +1,5 @@
+<% @users.each do |user| %>
+  <%= user.id %> : <%= user.name %>
+  <%= link_to 'edit', edit_admin_user_path(user) %>
+  <%= link_to 'delete', admin_user_path(user), :method => :delete, :confirm => "Y/N?", :title => "Delete" %>
+<% end %>

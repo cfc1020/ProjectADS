@@ -19,6 +19,7 @@ ProjectADS::Application.routes.draw do
     resources :types, :except => [:show]
     get "static_pages/adminka"
     get "ads/moderate"
+    resources :users, :only => [:index, :edit, :update, :destroy]
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

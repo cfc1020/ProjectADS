@@ -1,0 +1,8 @@
+<h1>Admin::User#edit</h1>
+<p>Find me in app/views/admin/user/edit.html.erb</p>
+
+<%= simple_form_for [:admin, @user] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :role %>
+  <%= f.button :submit %>
+<% end %>
