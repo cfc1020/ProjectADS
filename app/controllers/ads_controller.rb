@@ -11,7 +11,8 @@ class AdsController < ApplicationController
 
   def new
     if signed_in?
-      @ad = current_user.ads.build
+      @ad = Ad.new
+      @ad.pictures.build #current_user.ads.build
     else
       redirect_to new_user_session_path
     end

@@ -1,9 +1,9 @@
 ProjectADS::Application.routes.draw do
   
-  get "home/index"
-  get "user/index"
-  get "pictures/create"
-  get "pictures/destroy"
+  #get "home/index"
+  #get "user/index"
+  #get "pictures/create"
+  #get "pictures/destroy"
   
   resources  :ads do
     post 'transfer_state', on: :member
