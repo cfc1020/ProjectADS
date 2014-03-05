@@ -8,9 +8,9 @@ every 3.day, :at => '23.50' do
   runner "Ad.Archives!"
 end
 
-every 1.minutes do 
-  runner "Ad.Published!"
-end 
+#every 1.minutes do 
+#  runner "Ad.Published!"
+#end 
 
 
 # Use this file to easily define all of your cron jobs.
