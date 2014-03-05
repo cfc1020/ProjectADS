@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	extend Enumerize
 
-	has_many :ads
+	has_many :ads, :dependent => :destroy
 
   	enumerize :role, in: [:user, :admin], default: :user
   # Include default devise modules. Others available are:
