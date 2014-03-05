@@ -5,11 +5,15 @@ class Ability
     if user.nil?
         can :read, Ad, :state => 'published'
     elsif user.role.admin?
-        can :manage, :all
+        #can :manage, :all
+        can [:read, :destroy, :rejecte, :approve], Ad
+        #cannot [:update, :edit, :create], Ad
         can :set_role, User
+        can :manage, User
+        can :manage, Type
     elsif user.role.user?
-        can [:read, :create, :destroy, :edit, :send_to_pending, :send_to_draft], Ad, :user_id => user.id
-        can :update, Ad, :user_id => user.id, :state => 'draft'
+        can [:read, :create, :destroy, :send_to_pending, :send_to_draft], Ad, :user_id => user.id
+        can [:update, :edit], Ad, :user_id => user.id, :state => 'draft'
     end
     #else
         #can :read, :all

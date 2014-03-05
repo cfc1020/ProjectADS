@@ -57,7 +57,6 @@ class Ad < ActiveRecord::Base
     def self.Published!
       Ad.find_all_by_state("approved").each do |ad|
         ad.publish
-        puts 'df'
       end
     end
 
