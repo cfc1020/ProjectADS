@@ -50,4 +50,21 @@ class Ad < ActiveRecord::Base
     	end
   	end
 
+    def time_out?
+      self.updated_at <= Date.current - 3.days
+    end
+
+    def self.Published!
+      Ad.find_all_by_state("approved").each do |ad|
+        ad.publish
+        puts 'df'
+      end
+    end
+
+    def self.Archives!
+      Ad.find_all_by_state("published").each do |ad|
+        ad.send_to_arch if ad.time_out?
+      end
+    end
+
 end

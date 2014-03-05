@@ -12,13 +12,17 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "Ok update!"
       redirect_to admin_users_path
     else
       render :action => "edit"
     end
+  end
+
+  def destroy
+    @user.destroy
   end
 
 

@@ -48,6 +48,7 @@ gem 'simple_form'
 gem 'will_paginate', '~> 3.0'
 gem 'state_machine'
 gem 'nested_form'
+gem 'whenever', :require => false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
