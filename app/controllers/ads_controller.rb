@@ -2,6 +2,8 @@ class AdsController < ApplicationController
 
   load_and_authorize_resource
 
+  skip_before_filter :authenticate_user! , :only => [:index]
+
   before_action :get_ad, :only => [:edit, :destroy, :update, :transfer_state]
 
   def index
