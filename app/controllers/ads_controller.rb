@@ -4,7 +4,7 @@ class AdsController < ApplicationController
 
   skip_before_filter :authenticate_user! , :only => [:index]
 
-  before_action :get_ad, :only => [:edit, :destroy, :update, :transfer_state]
+  #before_action :get_ad, :only => [:edit, :destroy, :update, :transfer_state]
 
   def index
     @ads = Ad.paginate(:page => params[:page], :per_page => 5).
@@ -62,9 +62,9 @@ class AdsController < ApplicationController
   end
 
 
-  private
-
-  def get_ad
-    @ad = Ad.find(params[:id])
-  end
+  #private
+# 
+  #def get_ad
+ #   @ad = Ad.find(params[:id])
+  #end
 end

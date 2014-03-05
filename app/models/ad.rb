@@ -4,7 +4,8 @@ class Ad < ActiveRecord::Base
 	  has_many   :pictures, :dependent => :destroy
   	#validates  :user_id, presence: true
 
-    #validates :content, :presence => true, :length => { :in 10..1000 }
+    #temporarily
+    validates :content, :presence => true#, :length => { :in 10..1000 }
     validates :type, :presence => true
     validates :user, :presence => true  
 
