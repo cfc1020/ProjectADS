@@ -21,8 +21,7 @@ FactoryGirl.define do
   	end
 
   	factory :ad do
-  		content 
-  		state					{ "pending" }			
+  		content 		
   		user
   		type
   	end

@@ -27,4 +27,6 @@ describe Ad do
   it { should belong_to(:user) }
   it { should belong_to(:type) }
 
+  it { expect(@ad.state).to eq "draft" }
+
 end
