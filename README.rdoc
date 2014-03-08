@@ -1,4 +1,8 @@
  == README
 
  ProjectADS
- 
+
+Next destinations:
+1. Added gem Paperclip for upload image. 
+2. Added gem Ransack   for searching ads.
+May add, but not now.
