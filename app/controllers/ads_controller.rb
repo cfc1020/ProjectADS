@@ -5,7 +5,8 @@ class AdsController < ApplicationController
   skip_before_filter :authenticate_user! , :only => [:index]
 
   def index
-    @ads = Ad.paginate(:page => params[:page], :per_page => 5).
+    @q = Ad.search(params[:q])
+    @ads = @q.result(distinct: true).paginate(:page => params[:page], :per_page => 5).
       find_all_by_state("published")
   end
 

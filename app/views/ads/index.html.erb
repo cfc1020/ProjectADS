@@ -1,6 +1,12 @@
 <h1>Ads#index</h1>
 <p>Find me in app/views/ads/index.html.erb</p>
 
+<%= search_form_for @q, url: { :controller => params[:controller], :action => params[:action] } do |f| %>
+  <%= f.label :content_cont %>
+  <%= f.text_field :content_cont %>
+  <%= f.submit %>
+<% end %>
+
 <%= will_paginate @ads %>
 
 <% @ads.each do |ads| %>

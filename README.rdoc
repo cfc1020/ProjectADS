@@ -4,5 +4,5 @@
 
 Next destinations:
 1. Added gem Paperclip for upload image. 
-2. Added gem Ransack   for searching ads.
+2. Added gem Ransack   for searching ads. => (Searching for content is ready). Next -> sorting(filtration)
 May add, but not now.

@@ -52,15 +52,5 @@ gem 'whenever', :require => false
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'factory_girl_rails', '4.2.1'
 gem 'shoulda-matchers'
+gem 'ransack'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
