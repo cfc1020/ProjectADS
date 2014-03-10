@@ -13,6 +13,6 @@ ProjectADS::Application.routes.draw do
     resources :types, :except => [:show]
     get "static_pages/adminka"
     get "ads/moderate"
-    resources :users, :only => [:index, :edit, :update, :destroy]
+    resources :users, :except => [:show, :new, :create]
   end
 end

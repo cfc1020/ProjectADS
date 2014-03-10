@@ -1,18 +1,13 @@
 class Admin::UsersController < ApplicationController
 	load_and_authorize_resource
 
-  before_action :get_user, :only => [:edit, :update, :destroy]
-
   def index
-  	@users = User.all
   end
 
   def edit
-  	
   end
 
   def update
-    #@user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "Ok update!"
       redirect_to admin_users_path
@@ -23,13 +18,6 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    redirect_to admin_users_path
   end
-
-
-  private
-
-  def get_user
-    @user = User.find(params[:id])
-  end
-
 end
