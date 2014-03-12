@@ -59,4 +59,19 @@ class Ad < ActiveRecord::Base
       end
     end
 
+    def self.method_missing(meth, *args)
+      proc = Proc.new { return where(:state => meth.to_s) }
+
+      state_machine.states.each do |st|
+        proc.call if meth.to_s == st.name.to_s
+      end
+      super
+    end
+
+    def self.respond_to_missing?(meth, include_private = false)
+      state_machine.states.each do |st|
+        return true if meth.to_s == st.name.to_s
+      end
+      super
+    end
 end

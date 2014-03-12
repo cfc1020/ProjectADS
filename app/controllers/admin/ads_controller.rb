@@ -6,7 +6,7 @@ class Admin::AdsController < ApplicationController
 	def moderate
     	@q = Ad.search(params[:q])
   		@ads = @q.result.paginate(:page => params[:page], :per_page => 5).
-    		find_all_by_state("pending")
+    		pending
     	render "ads/index"
 	end
 end

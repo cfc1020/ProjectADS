@@ -7,7 +7,7 @@ class AdsController < ApplicationController
   def index
     @q = Ad.search(params[:q])
     @ads = @q.result(distinct: true).paginate(:page => params[:page], :per_page => 5).
-      find_all_by_state("published")
+      published
   end
 
   def new
