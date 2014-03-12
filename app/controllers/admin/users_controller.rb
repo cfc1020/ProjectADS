@@ -8,7 +8,9 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(params[:user])
+    @user.role = params[:user][:role]
+    @user.attributes = params[:user]
+    if @user.save
       flash[:notice] = "Ok update!"
       redirect_to admin_users_path
     else

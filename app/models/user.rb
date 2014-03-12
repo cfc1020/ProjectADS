@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 	validates :role,  presence: true
-	attr_accessible :email, :password, :password_confirmation, :remember_me, :name, 
-		:role
-	
+	attr_accessible :email, :password, :password_confirmation, :remember_me, :name 
+	attr_protected	:role
 end
