@@ -4,6 +4,8 @@ class AdsController < ApplicationController
 
   skip_before_filter :authenticate_user! , :only => [:index]
 
+  responders :flash, :http_cache
+
   def index
     @q = Ad.search(params[:q])
     @ads = @q.result(distinct: true).paginate(:page => params[:page], :per_page => 5).
@@ -16,11 +18,12 @@ class AdsController < ApplicationController
 
   def create
     @ad.user = current_user
-    if @ad.save
-      flash[:notice] = 'OK!!!'
-      redirect_to action: 'index'
-    else
-      render :action => "new"
+    respond_with(@ad) do |format|
+      if @ad.save
+        format.html { redirect_to action: 'index' }
+      else
+        format.html { render :action => "new" }
+      end
     end
   end
 
@@ -28,17 +31,20 @@ class AdsController < ApplicationController
   end
 
   def update
-    if @ad.update_attributes(params[:ad]) 
-      flash[:notice] = 'OK!.'
-      redirect_to ads_path
-    else
-      render :action => "edit"
+    respond_with(@ad) do |format|
+      if @ad.update_attributes(params[:ad])
+        format.html { redirect_to ads_path }
+      else
+        format.html { render :action => "edit" }
+      end
     end
   end
 
   def destroy
     @ad.destroy
-    redirect_to ads_path
+    respond_with(@ad) do |format|
+      format.html { redirect_to ads_path }
+    end
   end
 
   def transfer_state

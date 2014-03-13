@@ -52,4 +52,5 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'factory_girl_rails', '4.2.1'
 gem 'shoulda-matchers'
 gem 'ransack'
+gem 'responders'
 
