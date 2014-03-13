@@ -11,7 +11,7 @@ class AdsController < ApplicationController
   end
 
   def new
-    @ad.pictures.build #current_user.ads.build
+    @ad.pictures.build
   end
 
   def create

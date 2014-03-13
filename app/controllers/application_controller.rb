@@ -35,8 +35,6 @@ class ApplicationController < ActionController::Base
         |u| u.permit(registration_params) 
       }
     end
-  end
-
-  
+  end  
 
 end

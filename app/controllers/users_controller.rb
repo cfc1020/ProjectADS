@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-	#load_and_authorize_resource
   def show
   	@q = Ad.search(params[:q])
   	@ads = @q.result.paginate(:page => params[:page], :per_page => 5).
