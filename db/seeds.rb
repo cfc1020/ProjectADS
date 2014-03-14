@@ -1,11 +1,10 @@
-5.times do |i|
-  User.create(name: "UserName#{i}", email: "User#{i}@example.com", password: "12345678")
-end
+user  = User.create!(name: "UserName00", email: "User00@example.com", password: "12345678")
+admin = User.new(name: "AdminName00", email: "Admin00@example.com", password: "12345678")
+admin.role = "admin"
+admin.save!
+
+type = Type.create!(name: "TypeName00")
 
 5.times do |i|
-  Type.create(name: "TypeName#{i}")
-end
-
-5.times do |i|
-  Ad.create(content: "ContentAd#{i}", user_id: "4", type_id: "#{i}")
+  Ad.create!(content: "ContentAd#{i}", user_id: user.id, type_id: type.id)
 end
