@@ -15,7 +15,6 @@ class Ability
   end
 
   def set_role_admin(user)
-    #can :manage, :all
     can [:read, :destroy, :rejecte, :approve, :transfer_state], Ad
     cannot [:update, :edit, :create], Ad
     can :set_role, User

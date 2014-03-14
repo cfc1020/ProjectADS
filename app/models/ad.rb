@@ -2,10 +2,8 @@ class Ad < ActiveRecord::Base
 	  belongs_to :user
 	  belongs_to :type
 	  has_many   :pictures, :dependent => :destroy
-  	#validates  :user_id, presence: true
 
-    #temporarily
-    validates :content, :presence => true#, :length => { :in 10..1000 }
+    validates :content, :presence => true
     validates :type, :presence => true
     validates :user, :presence => true  
 
