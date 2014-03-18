@@ -5,6 +5,7 @@
     <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
     <%= link_to 'New', new_ad_path %> 
    <%= link_to 'User#show', user_root_path %>  <%= link_to 'или Adminka', admin_root_path if can? :set_role, User %>
+   <%= link_to 'Edit_profile', edit_user_registration_path %>
 <% else %>
     <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
 
