@@ -1,10 +1,12 @@
 <h1>Ads#index</h1>
 <p>Find me in app/views/ads/index.html.erb</p>
 
-<%= search_form_for @q, url: { :controller => params[:controller], :action => params[:action] } do |f| %>
-  <%= f.label :content_cont %>
-  <%= f.text_field :content_cont %>
-  <%= f.submit %>
+<% if params[:controller] == "ads" %>
+  <%= form_tag("/ads}/search", method: :get) do %>
+    <%= label_tag :query %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag :search %>
+  <% end %>
 <% end %>
 
 <%= will_paginate @ads %>
@@ -30,5 +32,3 @@
 <% end %>
 
 <%= will_paginate @ads %>
-
-

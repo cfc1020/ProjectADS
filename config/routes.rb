@@ -1,6 +1,7 @@
 ProjectADS::Application.routes.draw do
   resources  :ads do
     post 'transfer_state', on: :member
+    collection { get :search }
   end
 
   root :to => "ads#index"

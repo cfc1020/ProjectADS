@@ -51,6 +51,8 @@ gem 'whenever', :require => false
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'factory_girl_rails', '4.2.1'
 gem 'shoulda-matchers'
-gem 'ransack'
+gem "elasticsearch", git: "git://github.com/elasticsearch/elasticsearch-ruby.git"
+gem "elasticsearch-model", git: "git://github.com/elasticsearch/elasticsearch-rails.git"
+gem "elasticsearch-rails", git: "git://github.com/elasticsearch/elasticsearch-rails.git"
 gem 'responders'
 

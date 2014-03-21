@@ -7,9 +7,16 @@ class AdsController < ApplicationController
   responders :flash, :http_cache
 
   def index
-    @q = Ad.search(params[:q])
-    @ads = @q.result(distinct: true).paginate(:page => params[:page], :per_page => 5).
+    @ads = Ad.paginate(:page => params[:page], :per_page => 5).
       published
+  end
+
+  # GET /articles/search
+  def search
+    @ads = Ad.search(params[:q]).records.paginate(:page => params[:page], :per_page => 5).
+      published
+
+    render action: "index"
   end
 
   def new
