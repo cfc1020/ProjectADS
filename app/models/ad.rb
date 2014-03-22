@@ -8,6 +8,7 @@ class Ad < ActiveRecord::Base
 	  belongs_to :user
 	  belongs_to :type
 	  has_many   :pictures, :dependent => :destroy
+    has_many   :comment,  :dependent => :destroy
 
     validates :content, :presence => true
     validates :type, :presence => true
