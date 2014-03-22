@@ -29,33 +29,21 @@ class AdsController < ApplicationController
 
   def create
     @ad.user = current_user
-    respond_with(@ad) do |format|
-      if @ad.save
-        format.html { redirect_to action: 'index' }
-      else
-        format.html { render :action => "new" }
-      end
-    end
+    @ad.save
+    respond_with(@ad)
   end
 
   def edit
   end
 
   def update
-    respond_with(@ad) do |format|
-      if @ad.update_attributes(params[:ad])
-        format.html { redirect_to ads_path }
-      else
-        format.html { render :action => "edit" }
-      end
-    end
+    @ad.update_attributes(params[:ad])
+    respond_with(@ad)
   end
 
   def destroy
     @ad.destroy
-    respond_with(@ad) do |format|
-      format.html { redirect_to ads_path }
-    end
+    respond_with(@ad)
   end
 
   def transfer_state
