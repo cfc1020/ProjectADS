@@ -11,6 +11,10 @@ class AdsController < ApplicationController
       published
   end
 
+  def show
+    @comment = Comment.new
+  end
+
   # GET /articles/search
   def search
     @ads = Ad.search(params[:q]).records.paginate(:page => params[:page], :per_page => 5).

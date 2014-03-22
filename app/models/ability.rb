@@ -12,6 +12,7 @@ class Ability
   def set_role_user(user)
     can [:read, :create, :destroy, :transfer_state, :send_to_pending, :send_to_draft], Ad, :user_id => user.id
     can [:update, :edit], Ad, :user_id => user.id, :state => 'draft'
+    can [:create, :update, :destroy], Comment, :user_id => user.id
   end
 
   def set_role_admin(user)
@@ -20,5 +21,6 @@ class Ability
     can :set_role, User
     can :manage, User
     can :manage, Type
+    can :manage, Comment
   end
 end

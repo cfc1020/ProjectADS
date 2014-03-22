@@ -28,6 +28,8 @@
     	<% [:send_to_draft, :send_to_pending, :rejecte, :approve].each do |transfer_method| %>
       		<%= state_link transfer_method, ads %>
    		<% end %>
+   		<br />
+   		<%= link_to "show", ad_path(ads) %>
 	</p>
 <% end %>
 

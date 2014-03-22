@@ -1,0 +1,32 @@
+    <p>
+		UserName:
+		<%= @ad.user.name %> <br />
+		ContentAd:
+		<%= @ad.content   %>
+		<%= link_to "edit", edit_ad_path(@ad) if can? :edit, @ad %> 
+		<%= link_to "delete", ad_path(@ad), :method => :delete, :confirm => "Y/N?", :title => "Delete?" if can? :destroy, @ad  %> <br />
+		<%= @ad.type.name %> <br />
+		<% @ad.pictures.each do |pic| %>
+  			<%= image_tag(pic.url) %>
+		<% end %>
+
+		Status: <%= @ad.state %> <br />
+    	<% [:send_to_draft, :send_to_pending, :rejecte, :approve].each do |transfer_method| %>
+      		<%= state_link transfer_method, @ad %>
+   		<% end %>
+	</p>
+
+<h2>Comments:</h2>
+<% @ad.comments.each do |comment| %>
+	<p>
+		UserName:
+		<%= comment.user.name %> <br />
+		comment:
+		<%= comment.text   %>
+		<%= link_to "edit", edit_ad_comment_path(@ad, comment) if can? :edit, comment %> 
+		<%= link_to "delete", ad_comment_path(@ad, comment), :method => :delete, :confirm => "Y/N?", :title => "Delete?" if can? :destroy, comment  %> <br />
+	</p>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/comment_form' %>
