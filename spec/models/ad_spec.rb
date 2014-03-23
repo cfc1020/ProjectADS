@@ -17,9 +17,9 @@ describe Ad do
   it { should respond_to(:state) }
 
   #temp
-  #it { should ensure_length_of(:content).
-       #is_at_least(6).
-       #is_at_most(20) }
+  it { should ensure_length_of(:content).
+       is_at_least(2).
+       is_at_most(1000) }
 
   it { should validate_presence_of(:content) }
 

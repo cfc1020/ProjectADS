@@ -10,7 +10,7 @@ class Ad < ActiveRecord::Base
 	  has_many   :pictures, :dependent => :destroy
     has_many   :comments,  :dependent => :destroy
 
-    validates :content, :presence => true
+    validates :content, :presence => true, length: { minimum: 2, maximum: 1000 }
     validates :type, :presence => true
     validates :user, :presence => true  
 
