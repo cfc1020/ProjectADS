@@ -6,12 +6,8 @@ class CommentsController < ApplicationController
     @comment.ad = @ad
     @comment.user = current_user
     respond_with(@comment) do |format|
-      if @comment.save
-        UserMailer.notification_for_new_comment_for_ad(@ad, current_user).deliver
-        format.html { redirect_to @ad }
-      else
-        format.html { rredirect_to @ad }
-      end
+      UserMailer.notification_for_new_comment_for_ad(@ad, current_user).deliver if @comment.save
+      format.html { redirect_to @ad }
     end
   end
 
