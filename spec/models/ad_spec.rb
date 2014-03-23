@@ -1,13 +1,12 @@
 require 'spec_helper'
 
 describe Ad do
-  pending "add some examples to (or delete) #{__FILE__}"
 
   before do
     @ad = FactoryGirl.create(:ad)
   end
 
-  it "Create and save valid user" do
+  it "Create and save valid ad" do
   	@ad.save!
   end
 
@@ -16,7 +15,6 @@ describe Ad do
   it { should respond_to(:content) }
   it { should respond_to(:state) }
 
-  #temp
   it { should ensure_length_of(:content).
        is_at_least(2).
        is_at_most(1000) }
@@ -24,6 +22,7 @@ describe Ad do
   it { should validate_presence_of(:content) }
 
   it { should have_many(:pictures) }
+  it { should have_many(:comments) }
   it { should belong_to(:user) }
   it { should belong_to(:type) }
 

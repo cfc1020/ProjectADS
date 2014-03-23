@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
 
   before do
     @user = FactoryGirl.create(:user)
@@ -35,5 +34,6 @@ describe User do
   it { expect(@user.role).to eq "user" }
 
   it { should have_many(:ads) }
+  it { should have_many(:comments) }
 
 end

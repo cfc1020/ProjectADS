@@ -25,4 +25,10 @@ FactoryGirl.define do
   		user
   		type
   	end
+
+    factory :comment do
+      text            { "Text_comments_#{:content}"}
+      user
+      ad
+    end
 end
