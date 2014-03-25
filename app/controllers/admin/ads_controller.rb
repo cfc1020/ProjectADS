@@ -5,7 +5,7 @@ class Admin::AdsController < ApplicationController
 
   def moderate
     @ads = Ad.paginate(:page => params[:page], :per_page => 5).
-      pending
+      pending.includes(:pictures, :type, :user)
     render "ads/index"
   end
 end
