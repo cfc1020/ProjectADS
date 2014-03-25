@@ -3,6 +3,8 @@
 	<%= f.input  :content %>
 	<%= f.fields_for :pictures do |pic_form| %>
       	<%= pic_form.input :url %>
+      	<p> --and/or-- </p>
+      	<%= pic_form.file_field :photo %>
       	<%= pic_form.link_to_remove 'link_to_remove' %>
   	<% end %>
 

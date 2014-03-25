@@ -21,6 +21,10 @@
 		<%= ads.type.name %> <br />
 		<% ads.pictures.each do |pic| %>
   			<%= image_tag(pic.url) %>
+  			<% unless pic.photo.blank? %>
+  			  <%= image_tag(pic.photo.url) %>
+  			  
+  			<% end %>
 		<% end %>
 
 		Status: <%= ads.state %> <br />
