@@ -2,13 +2,26 @@
 	<%= f.association :type %>
 	<%= f.input  :content %>
 	<%= f.fields_for :pictures do |pic_form| %>
-      	<%= pic_form.input :url %>
-      	<p> --and/or-- </p>
-      	<%= pic_form.file_field :photo %>
-      	<%= pic_form.link_to_remove 'link_to_remove' %>
-  	<% end %>
+    <%= pic_form.input :url %>
+    <%= pic_form.link_to_remove 'Remove this url picture' %>
+  <% end %>
 
-  	<%= f.link_to_add 'Add picture', :pictures %>
+  <%= f.link_to_add 'Add url picture', :pictures %>
 
-  	<%= f.button :submit  %>
+  <%= f.fields_for :images, Image.new do |img_form| %>
+    <%= img_form.file_field :photo %>
+    <%= img_form.link_to_remove 'Remove this photo' %>
+  <% end %>
+
+  <%= f.link_to_add 'Add photo', :images %>
+
+
+  <%= f.button :submit  %>
+<% end %>
+
+<% @ad.images.each do |img| %>
+  <p>
+    <%= img.photo.original_filename %>
+    <%= link_to "delete", ad_image_path(@ad, img), :method => :delete, :confirm => "Y/N?", :title => "Delete?" %> <br />
+  </p>
 <% end %>

@@ -3,6 +3,7 @@ ProjectADS::Application.routes.draw do
     post 'transfer_state', on: :member
     collection { get :search }
     resources :comments, :except => [:new, :show, :index]
+    resources :images, only: :destroy
   end
 
   root :to => "ads#index"

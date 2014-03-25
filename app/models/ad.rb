@@ -8,6 +8,7 @@ class Ad < ActiveRecord::Base
   belongs_to :user
   belongs_to :type
   has_many   :pictures, :dependent => :destroy
+  has_many   :images, :dependent => :destroy
   has_many   :comments,  :dependent => :destroy
 
   validates :content, :presence => true, length: { minimum: 2, maximum: 1000 }
@@ -18,6 +19,8 @@ class Ad < ActiveRecord::Base
   attr_protected  :state
 
   accepts_nested_attributes_for :pictures, :reject_if => :all_blank,
+                                :allow_destroy => true
+  accepts_nested_attributes_for :images, :reject_if => :all_blank,
                                 :allow_destroy => true
 
 

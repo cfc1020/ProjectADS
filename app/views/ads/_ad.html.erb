@@ -8,10 +8,10 @@
 		<%= ad.type.name %> <br />
 		<% ad.pictures.each do |pic| %>
   			<%= image_tag(pic.url) %>
-  			<% unless pic.photo.blank? %>
-  			  <%= image_tag(pic.photo.url) %>
-  			  
-  			<% end %>
+		<% end %>
+
+		<% ad.images.each do |img| %>
+  			 <%= image_tag(img.photo.url) %>
 		<% end %>
 
 		Status: <%= ad.state %> <br />

@@ -8,7 +8,7 @@ class AdsController < ApplicationController
 
   def index
     @ads = Ad.paginate(:page => params[:page], :per_page => 5).
-      published.includes(:pictures, :type, :user)
+      published.includes(:pictures, :type, :user, :images)
   end
 
   def show
@@ -18,7 +18,7 @@ class AdsController < ApplicationController
   # GET /articles/search
   def search
     @ads = Ad.search(params[:q]).records.paginate(:page => params[:page], :per_page => 5).
-      published.includes(:pictures, :type, :user)
+      published.includes(:pictures, :type, :user, :images)
 
     render action: "index"
   end

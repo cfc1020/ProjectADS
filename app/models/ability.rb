@@ -12,6 +12,7 @@ class Ability
   def set_role_user(user)
     can [:read, :create, :destroy, :transfer_state, :send_to_pending, :send_to_draft, :search], Ad, :user_id => user.id
     can [:update, :edit], Ad, :user_id => user.id, :state => 'draft'
+    can :destroy, Image
     can [:create, :update, :destroy], Comment, :user_id => user.id
   end
 
