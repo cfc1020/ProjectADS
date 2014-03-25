@@ -1,5 +1,4 @@
-<h1>Admin::Types#index</h1>
-<p>Find me in app/views/admin/types/index.html.erb</p>
+<% provide(:title, 'Types') %>
 
 
 <% @types.each do |type| %>
@@ -9,4 +8,3 @@
 <% end %>
 
 <%= link_to 'Create new type', new_admin_type_path %>
-

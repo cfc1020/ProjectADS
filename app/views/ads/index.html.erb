@@ -1,8 +1,7 @@
-<h1>Ads#index</h1>
-<p>Find me in app/views/ads/index.html.erb</p>
+<% provide(:title, 'Show ADS') %>
 
 <% if params[:controller] == "ads" %>
-  <%= form_tag("/ads}/search", method: :get) do %>
+  <%= form_tag("/ads/search", method: :get) do %>
     <%= label_tag :query %>
     <%= text_field_tag :q, params[:q] %>
     <%= submit_tag :search %>

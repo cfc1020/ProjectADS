@@ -1,5 +1,4 @@
-<h1>Admin::StaticPages#adminka</h1>
-<p>Find me in app/views/admin/static_pages/adminka.html.erb</p>
+<% provide(:title, 'Adminka') %>
 <p>
   <%= link_to "Moderate a new ads (#{Ad.find_all_by_state("pending").count})", 
   		"/admin/ads/moderate" %>
