@@ -1,0 +1,23 @@
+<p>
+		UserName:
+		<%= ad.user.name %> <br />
+		ContentAd:
+		<%= ad.content   %>
+		<%= link_to "edit", edit_ad_path(ad) if can? :edit, ad %> 
+		<%= link_to "delete", ad_path(ad), :method => :delete, :confirm => "Y/N?", :title => "Delete?" if can? :destroy, ad  %> <br />
+		<%= ad.type.name %> <br />
+		<% ad.pictures.each do |pic| %>
+  			<%= image_tag(pic.url) %>
+  			<% unless pic.photo.blank? %>
+  			  <%= image_tag(pic.photo.url) %>
+  			  
+  			<% end %>
+		<% end %>
+
+		Status: <%= ad.state %> <br />
+    	<% [:send_to_draft, :send_to_pending, :rejecte, :approve].each do |transfer_method| %>
+      		<%= state_link transfer_method, ad %>
+   		<% end %>
+   		<br />
+   		<%= link_to "show", ad_path(ad) %>
+</p>
