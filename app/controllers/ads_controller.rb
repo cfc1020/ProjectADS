@@ -1,4 +1,6 @@
 class AdsController < ApplicationController
+  
+  include AdsHelper
 
   load_and_authorize_resource
 
@@ -29,6 +31,7 @@ class AdsController < ApplicationController
 
   def create
     @ad.user = current_user
+    @ad.images << upload_images_fro_url(params[:url_image])
     @ad.images.destroy_all unless @ad.save
     respond_with(@ad)
   end
@@ -37,6 +40,7 @@ class AdsController < ApplicationController
   end
 
   def update
+    @ad.images << upload_images_fro_url(params[:url_image])
     @ad.update_attributes(params[:ad])
     respond_with(@ad)
   end
