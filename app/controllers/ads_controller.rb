@@ -29,7 +29,7 @@ class AdsController < ApplicationController
 
   def create
     @ad.user = current_user
-    @ad.save
+    @ad.images.destroy_all unless @ad.save
     respond_with(@ad)
   end
 
