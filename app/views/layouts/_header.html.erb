@@ -1,16 +1,31 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-	<%= link_to 'Home', root_path %>
-<% if user_signed_in? %>
-    <span>Здравствуйте, <%= current_user.email %></span>
-    <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
-    <%= link_to 'New', new_ad_path %> 
-   <%= link_to 'Show my ads', user_root_path %>  <%= link_to 'или Adminka', admin_root_path if can? :set_role, User %>
-   <%= link_to 'Edit my profile', edit_user_registration_path %>
-<% else %>
-    <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
-
-<% end %>
-
-<p> <center><%= link_to image_tag("advertising_icon.jpg", alt: "ProjectADS"), root_path %> <center> </p>
-   
+<header class="navbar">
+  <div class="navbar-inner">
+    <%= link_to 'Home', root_path, class: "brand" %>
+    <ul class="nav">
+      <% if user_signed_in? %>
+      	<li class="divider-vertical">
+          <%= link_to "Здравствуйте, #{current_user.email}", user_root_path %> 
+        </li> 
+        <li class="divider-vertical">
+          <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+        </li>
+        <li class="divider-vertical">
+          <%= link_to 'New', new_ad_path%> 
+        </li>
+        <li class="divider-vertical">
+          <%= link_to 'Adminka', admin_root_path if can? :set_role, User %>
+        </li>
+        <li class="divider-vertical">
+          <%= link_to 'Edit my profile', edit_user_registration_path %>
+        </li>  
+      <% else %>
+        <li class="divider-vertical">
+          <%= link_to 'Войти', new_user_session_path %> 
+        </li>
+        <li class="divider-vertical">
+          <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+        </li>
+      <% end %>
+    </ul> 
+  </div>
 </header>
