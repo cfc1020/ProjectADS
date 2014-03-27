@@ -3,8 +3,8 @@
 <% if params[:controller] == "ads" %>
   <%= form_tag("/ads/search", method: :get) do %>
     <%= label_tag :query %>
-    <%= text_field_tag :q, params[:q] %>
-    <%= submit_tag :search %>
+    <%= text_field_tag :q, params[:q] %> <br />
+    <%= submit_tag :search, class: 'btn btn-primary' %>
   <% end %>
 <% end %>
 

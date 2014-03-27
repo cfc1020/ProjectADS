@@ -1,20 +1,26 @@
 <p>
-		UserName:
-		<%= ad.user.name %> <br />
-		ContentAd:
-		<%= ad.content   %>
-		<%= link_to "edit", edit_ad_path(ad) if can? :edit, ad %> 
-		<%= link_to "delete", ad_path(ad), :method => :delete, :confirm => "Y/N?", :title => "Delete?" if can? :destroy, ad  %> <br />
-		<%= ad.type.name %> <br />
+  <b>User name:</b>
+  <%= ad.user.name %> <br />
+  <b>Type advertising:</b>
+  <%= ad.type.name %> <br /> 
+  <b>Status:</b> <%= ad.state %> <br /> <br /> 
+  <i><%= ad.content   %> </i><br />
+    <% ad.images.each do |img| %>
+    <%= image_tag(img.photo.url) %>
+  <% end %>
+  <br /> <br />
+  <%= link_to "Edit advertising", edit_ad_path(ad) if can? :edit, ad %> 
+  <%= link_to "Delete advertising", ad_path(ad), :method => :delete, :confirm => "Y/N?", :title => "Delete?" if can? :destroy, ad  %> <br />
+  
 
-		<% ad.images.each do |img| %>
-  			 <%= image_tag(img.photo.url) %>
-		<% end %>
 
-		Status: <%= ad.state %> <br />
-    	<% [:send_to_draft, :send_to_pending, :rejecte, :approve].each do |transfer_method| %>
-      		<%= state_link transfer_method, ad %>
-   		<% end %>
-   		<br />
-   		<%= link_to "show", ad_path(ad) %>
+
+  <% [:send_to_draft, :send_to_pending, :rejecte, :approve].each do |transfer_method| %>
+    <%= state_link transfer_method, ad %>
+  <% end %>
+  <br />
+  <%= link_to "Read more...", ad_path(ad) %>
+  <br />
+  ----------------------------------------------- 
+  <br /> <br /> 
 </p>
