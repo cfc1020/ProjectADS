@@ -11,6 +11,7 @@
 
 <p> <center><%= link_to image_tag("main_icon.jpg", alt: "ProjectADS"), root_path %> </center> </p>
 
+<%= render 'layouts/adblock_detect' %>
 
 <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>"><%= value %></div>
