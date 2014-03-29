@@ -5,11 +5,9 @@
   <%= ad.type.name %> <br /> 
   <b>Status:</b> <%= ad.state %> <br /> <br /> 
   <i><%= ad.content   %> </i><br />
-    <% ad.images.each do |img| %>
-    <%= image_tag(img.photo.url) %>
-  <% end %>
+  <%= render ad.images %>
   <br /> <br />
-  <%= link_to "Edit advertising", edit_ad_path(ad) if can? :edit, ad %> 
+  <%= link_to "Edit advertising |", edit_ad_path(ad) if can? :edit, ad %>
   <%= link_to "Delete advertising", ad_path(ad), :method => :delete, :confirm => "Y/N?", :title => "Delete?" if can? :destroy, ad  %> <br />
   
 

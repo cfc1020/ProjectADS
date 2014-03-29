@@ -1,17 +1,8 @@
 <% provide(:title, 'Ads') %>
-<%= render partial: 'ads/ad', locals: {ad: @ad} %>
+<%= render @ad %>
 
 <h2>Comments:</h2>
-<% @ad.comments.each do |comment| %>
-  <p>  
-    UserName:
-    <%= comment.user.name %> <br />
-    comment:
-    <%= comment.text   %>
-    <%= link_to "edit", edit_ad_comment_path(@ad, comment) if can? :edit, comment %> 
-    <%= link_to "delete", ad_comment_path(@ad, comment), :method => :delete, :confirm => "Y/N?", :title => "Delete?" if can? :destroy, comment  %> <br />
-  </p>
-<% end %>
+<%= render @ad.comments %>
 
 <h2>Add a comment:</h2>
 <%= render 'comments/comment_form' %>
