@@ -2,7 +2,8 @@
 <%= render @ad %>
 
 <h2>Comments:</h2>
-<%= render @ad.comments %>
+<%= sync partial: 'comment', collection: @ad.comments %>
+<%= sync_new partial: 'comment', resource: Comment.new, scope: @ad %>
 
 <h2>Add a comment:</h2>
 <%= render 'comments/comment_form' %>

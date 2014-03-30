@@ -7,4 +7,6 @@ class Comment < ActiveRecord::Base
   validates :text, :presence => true, length: { minimum: 2, maximum: 1000 }
   validates :user, :presence => true
   validates :ad, :presence => true
+  
+  sync :all
 end

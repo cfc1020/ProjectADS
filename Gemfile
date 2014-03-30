@@ -57,3 +57,6 @@ gem "elasticsearch-rails", git: "git://github.com/elasticsearch/elasticsearch-ra
 gem 'responders'
 gem "paperclip", "~> 4.1"
 gem 'rubocop', require: false
+gem 'faye'
+gem 'thin', require: false
+gem 'sync'

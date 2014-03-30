@@ -1,4 +1,4 @@
-<%= form_for([@ad, @comment]) do |f| %>
+<%= form_for([@ad, @comment], remote: true) do |f| %>
   <p>
     <%= f.label :text %><br>
     <%= f.text_area :text %>

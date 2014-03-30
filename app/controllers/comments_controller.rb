@@ -1,12 +1,17 @@
-class CommentsController < ApplicationController
+class CommentsController < ApplicationController 
   load_and_authorize_resource
+
+  enable_sync only: [:create, :update, :destroy]
 
   def create
     @ad = Ad.find(params[:ad_id])
     @comment.ad = @ad
     @comment.user = current_user
     respond_with(@comment) do |format|
-      UserMailer.notification_for_new_comment_for_ad(@ad, current_user).deliver if @comment.save
+      if @comment.save
+        UserMailer.notification_for_new_comment_for_ad(@ad, current_user).deliver
+        sync_new @comment, scope: @ad
+      end
       format.html { redirect_to @ad }
     end
   end
@@ -19,6 +24,7 @@ class CommentsController < ApplicationController
     @ad = Ad.find(params[:ad_id])
     respond_with(@comment) do |format|
       if @comment.update_attributes(params[:comment])
+        sync_update @comment
         format.html { redirect_to @ad }
       else
         format.html { render :action => "edit" }
@@ -27,7 +33,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.destroy
+    sync_destroy @comment if @comment.destroy
     respond_with(@comment) do |format|
       format.html { redirect_to ad_path(Ad.find(params[:ad_id])) }
     end
