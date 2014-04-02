@@ -8,7 +8,7 @@ ProjectADS::Application.routes.draw do
 
   root :to => "ads#index"
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   get "users/show", as: "user_root"
 
   namespace :admin do

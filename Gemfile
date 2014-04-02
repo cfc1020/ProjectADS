@@ -60,3 +60,5 @@ gem 'rubocop', require: false
 gem 'faye'
 gem 'thin', require: false
 gem 'sync'
+gem 'omniauth'
+gem 'omniauth-facebook'

@@ -1,0 +1,13 @@
+defaults: &defaults
+  facebook:
+    api_key: 'KEY'
+    api_secret: 'SECRET'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

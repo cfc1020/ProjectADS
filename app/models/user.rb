@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable, :validatable#, :oauthable
+  devise :omniauthable, :omniauth_providers => [:facebook]
   validates :name,  presence: true, length:  { in: 6..20 } 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
@@ -16,4 +17,14 @@ class User < ActiveRecord::Base
   validates :role,  presence: true
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name 
   attr_protected	:role
+
+  def self.find_for_facebook_oauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.name = auth.info.name
+    end
+  end
 end
