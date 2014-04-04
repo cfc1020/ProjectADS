@@ -10,6 +10,6 @@
 
 <%= will_paginate @ads %>
 
-<%= render @ads %>
+<%= render partial: "ads/ad", collection: @ads %>
 
 <%= will_paginate @ads %>
