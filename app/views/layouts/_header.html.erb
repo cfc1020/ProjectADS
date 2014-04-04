@@ -4,7 +4,7 @@
     <ul class="nav">
       <% if user_signed_in? %>
       	<li class="divider-vertical">
-          <%= link_to "Здравствуйте, #{current_user.email}", user_root_path %> 
+          <%= link_to "Hi, #{current_user.email}", user_root_path %> 
         </li> 
         <li class="divider-vertical">
           <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
@@ -20,13 +20,13 @@
         </li>  
       <% else %>
         <li class="divider-vertical">
-          <%= link_to 'Войти', new_user_session_path %> 
+          <%= link_to 'Sign in', new_user_session_path %> 
         </li>
         <li class="divider-vertical">
           <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
         </li>
         <li class="divider-vertical">
-          <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+          <%= link_to 'Sign up', new_user_registration_path %>
         </li>
       <% end %>
     </ul> 
