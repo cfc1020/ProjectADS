@@ -14,8 +14,8 @@ class Ad < ActiveRecord::Base
   validates :type, :presence => true
   validates :user, :presence => true  
 
-  attr_accessible :content, :user_id, :type_id
-  attr_protected  :state
+  attr_accessible :content, :type_id
+  attr_protected  :state, :user_id
 
   accepts_nested_attributes_for :images, :reject_if => :all_blank,
                                 :allow_destroy => true
