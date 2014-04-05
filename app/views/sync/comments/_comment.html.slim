@@ -4,6 +4,7 @@ p
   br
   |  comment: 
   = comment.text
+  br
   = link_to "edit |", edit_ad_comment_path(@ad, comment) if can? :edit, comment
   = link_to "delete", ad_comment_path(@ad, comment), :method => :delete, :confirm => "Y/N?", :title => "Delete?" if can? :destroy, comment
   br

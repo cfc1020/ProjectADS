@@ -1,6 +1,6 @@
 - provide(:title, 'Adminka')
 p
-  |  <%= link_to "Moderate a new ads (#{Ad.find_all_by_state("pending").count})", "/admin/ads/moderate" %> 
+  = link_to "Moderate a new ads (#{Ad.find_all_by_state("pending").count})", "/admin/ads/moderate"
 p
   = link_to "Update  types", admin_types_path
 p
