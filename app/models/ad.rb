@@ -8,7 +8,7 @@ class Ad < ActiveRecord::Base
   belongs_to :user
   belongs_to :type
   has_many   :images, :dependent => :destroy
-  has_many   :comments,  :dependent => :destroy
+  has_many   :comments,  :dependent => :destroy, include: :user
 
   validates :content, :presence => true, length: { minimum: 2, maximum: 1000 }
   validates :type, :presence => true
