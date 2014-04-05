@@ -11,8 +11,10 @@ class CommentsController < ApplicationController
       if @comment.save
         UserMailer.notification_for_new_comment_for_ad(@ad, current_user).deliver
         sync_new @comment, scope: @ad
-      end
-      format.html { redirect_to @ad }
+        format.html { redirect_to @ad }
+      else
+        format.html { render :action => "edit" }
+      end 
     end
   end
 
