@@ -62,3 +62,5 @@ gem 'thin', require: false
 gem 'sync'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'slim'
+

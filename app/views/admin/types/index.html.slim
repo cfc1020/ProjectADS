@@ -1,0 +1,8 @@
+- provide(:title, 'Types')
+- @types.each do |type|
+  = type.id
+  |  : 
+  = type.name
+  = link_to 'edit', edit_admin_type_path(type)
+  = link_to 'delete', admin_type_path(type), :method => :delete, :confirm => "Y/N?", :title => "Delete type #{type.name}"
+= link_to 'Create new type', new_admin_type_path

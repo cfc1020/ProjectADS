@@ -1,0 +1,5 @@
+- provide(:title, 'Edit user')
+= simple_form_for [:admin, @user] do |f|
+  = f.input :name
+  = f.input :role
+  = f.button :submit

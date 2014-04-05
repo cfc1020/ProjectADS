@@ -1,0 +1,31 @@
+p
+  b
+    | User name:
+  = ad.user.name
+  br
+  b
+    | Type advertising:
+  = ad.type.name
+  br
+  b
+    | Status:
+  = ad.state
+  br
+  br
+  i
+    = ad.content
+  br
+  = render ad.images
+  br
+  br
+  = link_to "Edit advertising |", edit_ad_path(ad) if can? :edit, ad
+  = link_to "Delete advertising", ad_path(ad), :method => :delete, :confirm => "Y/N?", :title => "Delete?" if can? :destroy, ad
+  br
+  - [:send_to_draft, :send_to_pending, :rejecte, :approve].each do |transfer_method|
+    = state_link transfer_method, ad
+  br
+  = link_to "Read more...", ad_path(ad)
+  br
+  |  ----------------------------------------------- 
+  br
+  br

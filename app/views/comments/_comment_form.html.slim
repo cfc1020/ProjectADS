@@ -1,0 +1,7 @@
+= form_for([@ad, @comment]) do |f|
+  p
+    = f.label :text
+    br
+    = f.text_area :text
+  p
+    = f.submit
