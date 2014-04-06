@@ -6,7 +6,7 @@ header.navbar
         li.divider-vertical
           = link_to "Hi, #{current_user.email}", user_root_path
         li.divider-vertical
-          = link_to 'Выйти', destroy_user_session_path, :method => :delete
+          = link_to 'Sign out', destroy_user_session_path, :method => :delete
         li.divider-vertical
           = link_to 'New', new_ad_path
         li.divider-vertical
