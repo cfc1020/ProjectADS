@@ -21,7 +21,7 @@ describe Ad do
 
   it { should validate_presence_of(:content) }
 
-  it { should have_many(:pictures) }
+  it { should have_many(:images) }
   it { should have_many(:comments) }
   it { should belong_to(:user) }
   it { should belong_to(:type) }
