@@ -63,4 +63,4 @@ gem 'sync'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'slim'
-
+gem 'hermitage'
