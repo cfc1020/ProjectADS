@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402122004) do
+ActiveRecord::Schema.define(version: 20140407185631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 20140402122004) do
     t.datetime "updated_at"
     t.integer  "type_id"
     t.string   "state"
+    t.string   "slug"
   end
 
+  add_index "ads", ["slug"], name: "index_ads_on_slug", using: :btree
   add_index "ads", ["user_id", "created_at"], name: "index_ads_on_user_id_and_created_at", using: :btree
 
   create_table "comments", force: true do |t|
@@ -33,10 +35,26 @@ ActiveRecord::Schema.define(version: 20140402122004) do
     t.integer  "ad_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
   end
 
   add_index "comments", ["ad_id", "created_at"], name: "index_comments_on_ad_id_and_created_at", using: :btree
   add_index "comments", ["user_id", "created_at"], name: "index_comments_on_user_id_and_created_at", using: :btree
+
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "images", force: true do |t|
     t.datetime "created_at"

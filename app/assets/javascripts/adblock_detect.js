@@ -4,4 +4,4 @@ setTimeout(function() {
     window.location.href = "/adblock_problem.html";
   }
 }, 
-1);
+100);

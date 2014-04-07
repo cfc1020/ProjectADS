@@ -14,6 +14,7 @@ class AdsController < ApplicationController
   end
 
   def show
+    redirect_to @ad, status: :moved_permanently if request.path != ad_path(@ad)
     @comment = Comment.new
   end
 

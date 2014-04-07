@@ -10,6 +10,7 @@ gem 'rspec-rails', '~> 3.0.0.beta'
 group :test do
   gem 'selenium-webdriver', '2.35.1'
   gem 'capybara', "~> 2.2.1"
+  gem 'rubocop', require: false
 end
 
 
@@ -64,3 +65,4 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'slim'
 gem 'hermitage'
+gem 'friendly_id', '~> 5.0.0'

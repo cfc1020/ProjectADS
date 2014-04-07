@@ -2,6 +2,17 @@ require 'elasticsearch/model'
 
 class Ad < ActiveRecord::Base
 
+  extend FriendlyId
+  friendly_id :slug_for_url, use: [:history, :slugged, :finders]
+
+  def slug_for_url
+    self.content[0..10]
+  end
+
+  def should_generate_new_friendly_id?
+    slug.blank? || content_changed?
+  end
+
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
