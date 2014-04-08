@@ -4,6 +4,5 @@ class Admin::StaticPagesController < ApplicationController
   before_filter :verify_admin
 
   def adminka
-  end
-  
+  end  
 end

@@ -7,7 +7,7 @@ describe User do
   end
 
   it "Create and save valid user" do
-  	@user.save!
+    @user.save!
   end
 
   subject { @user }

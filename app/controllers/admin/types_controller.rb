@@ -12,7 +12,7 @@ class Admin::TypesController < ApplicationController
   end
 
   def create
-  	@type = Type.new(name: params[:type][:name])
+    @type = Type.new(name: params[:type][:name])
     respond_with(@type) do |format|
       if @type.save
         format.html { redirect_to(admin_types_path) }
@@ -23,7 +23,7 @@ class Admin::TypesController < ApplicationController
   end
 
   def destroy
-  	@type.destroy
+    @type.destroy
     respond_with(@type) do |format|
       format.html { redirect_to(admin_types_path) }
     end

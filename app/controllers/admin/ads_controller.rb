@@ -1,6 +1,6 @@
 class Admin::AdsController < ApplicationController
   include Admin::StaticPagesHelper
-	
+
   before_filter :verify_admin
 
   def moderate

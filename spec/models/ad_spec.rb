@@ -7,7 +7,7 @@ describe Ad do
   end
 
   it "Create and save valid ad" do
-  	@ad.save!
+    @ad.save!
   end
 
   subject { @ad }

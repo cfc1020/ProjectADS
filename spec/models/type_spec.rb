@@ -6,7 +6,7 @@ describe Type do
   end
 
   it "Create and save type" do
-  	@type.save!
+    @type.save!
   end
 
   subject { @type }
