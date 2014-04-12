@@ -6,5 +6,7 @@ admin.save!
 type = Type.create!(name: "TypeName00")
 
 5.times do |i|
-  Ad.create!(content: "ContentAd#{i}", user_id: user.id, type_id: type.id)
+  ad = Ad.new(content: "ContentAd#{i}", type_id: type.id)
+  ad.user = user
+  ad.save!
 end
