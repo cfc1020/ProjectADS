@@ -3,4 +3,4 @@
  ProjectADS
 
 
-The project has entered the final part of his. Global change in the future is not anticipated!!!.
+Hi! This is a simple project for publication ads. It has a many roles user for manage. You can CRUD(create, read, edit, destroy) and search the ads. The ad can have a very many states.  You easy can add many features. The project is written specifically for this. It has a rake task for publishing ads. I used a PostgreSQL. You can not run it in the Windows OS. I written a Rspec tests. For makeup I used a BootstrapCSS. You can also sync comment ads. Maybe I add other features. Let's go http://andrey-ads.herokuapp.com 
