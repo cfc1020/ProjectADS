@@ -10,6 +10,10 @@ gem 'rspec-rails', '~> 3.0.0.beta'
 group :test do
   gem 'selenium-webdriver', '2.35.1'
   gem 'capybara', "~> 2.2.1"
+end
+
+group :development do
+  gem 'pry-rails'
   gem 'rubocop', require: false
 end
 
@@ -60,7 +64,6 @@ gem "elasticsearch-model", git: "git://github.com/elasticsearch/elasticsearch-ra
 gem "elasticsearch-rails", git: "git://github.com/elasticsearch/elasticsearch-rails.git"
 gem 'responders'
 gem "paperclip", "~> 4.1"
-gem 'rubocop', require: false
 gem 'faye'
 gem 'thin', require: false
 gem 'sync'
