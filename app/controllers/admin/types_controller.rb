@@ -1,15 +1,7 @@
 class Admin::TypesController < ApplicationController
   load_and_authorize_resource
-  responders :flash, :http_cache
   
-  def index
-  end
-
-  def new
-  end
-
-  def edit
-  end
+  responders :flash, :http_cache
 
   def create
     @type = Type.new(name: params[:type][:name])
