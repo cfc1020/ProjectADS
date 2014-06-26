@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: images
+#
+#  id                 :integer          not null, primary key
+#  created_at         :datetime
+#  updated_at         :datetime
+#  photo_file_name    :string(255)
+#  photo_content_type :string(255)
+#  photo_file_size    :integer
+#  photo_updated_at   :datetime
+#  ad_id              :integer
+#
+
 class Image < ActiveRecord::Base
   attr_accessible :photo, :url
   attr_protected  :ad_id

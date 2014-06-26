@@ -1,4 +1,5 @@
 ProjectADS::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   resources  :ads do
     post 'transfer_state', on: :member
     collection { get :search }
