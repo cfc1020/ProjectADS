@@ -13,12 +13,12 @@ p
   br
   br
   i
-    = ad.content
+    == ad.content
   br
   = render_gallery_for ad.images, original: 'image_full', thumbnail: 'image_thumb'
   br
   br
-  = link_to "Edit advertising |", edit_ad_path(ad) if can? :edit, ad
+  = link_to "Edit advertising | ", edit_ad_path(ad) if can? :edit, ad
   = link_to "Delete advertising", ad_path(ad), :method => :delete, :confirm => "Y/N?", :title => "Delete?" if can? :destroy, ad
   br
   - [:send_to_draft, :send_to_pending, :rejecte, :approve].each do |transfer_method|

@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: ads
+#
+#  id         :integer          not null, primary key
+#  content    :text
+#  user_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  type_id    :integer
+#  state      :string(255)
+#  slug       :string(255)
+#
+
 require 'spec_helper'
 
 describe Ad do
