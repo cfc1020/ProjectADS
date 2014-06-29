@@ -1,8 +1,9 @@
 - provide(:title, 'Types')
 - @types.each do |type|
-  = type.id
-  |  : 
+  / = type.id
+  / |  : 
   = type.name
-  = link_to 'edit', edit_admin_type_path(type)
-  = link_to 'delete', admin_type_path(type), :method => :delete, :confirm => "Y/N?", :title => "Delete type #{type.name}"
-= link_to 'Create new type', new_admin_type_path
+  = button_to 'edit', edit_admin_type_path(type), class: "btn btn-warning", method: :get
+  = button_to 'delete', admin_type_path(type), :method => :delete, :confirm => "Y/N?", :title => "Delete type #{type.name}", class: "btn btn-danger"
+= button_to 'Create new type', new_admin_type_path, class: "btn btn-success", method: :get
+= button_to 'Back', :back, :method => :get, class: "btn btn-default btn-lg"

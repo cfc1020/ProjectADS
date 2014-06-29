@@ -21,3 +21,5 @@
 
 /public/system/
 /config/api_keys.yml
+public/ckeditor_assets/
+
